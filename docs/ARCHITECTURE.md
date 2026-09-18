@@ -6,6 +6,7 @@ This document serves as a critical, living template designed to equip agents wit
 
 This repository follows a standard Next.js App Router convention, flattened for a serverless deployment model. UI components are hand-built with Tailwind CSS, using the `ui-ux-pro-max` skill (nextlevelbuilder/ui-ux-pro-max-skill) as a development-time design reference — not a runtime dependency — for style, color, typography, and UX-pattern decisions.
 
+```
 [Project Root]/
 ├── src/
 │   ├── app/                # Next.js App Router (Frontend & Backend Routes)
@@ -36,11 +37,15 @@ This repository follows a standard Next.js App Router convention, flattened for 
 ├── package.json            # Dependencies and scripts
 ├── README.md               # Project overview
 └── ARCHITECTURE.md         # This document
+```
+
+---
 
 ## 2. High-Level System Diagram
 
 The system relies on a thick client for local-first interactions and serverless functions for secure AI execution and database syncing. Post-authentication data mutations utilize an Optimistic UI pattern: updates are written immediately to local state before syncing to the cloud in the background, reverting on failure.
 
+```
 [Client Browser (Speech/Text Input)]
 |
 +--> (Optimistic Write) --> [localStorage (UI State)]
@@ -52,6 +57,9 @@ The system relies on a thick client for local-first interactions and serverless 
 |                                     +--> [Upstash Redis] (proactive rate-limit counters; fails open on error)
 |
 +--> (Date Resolution, local only) --> [chrono-node in-browser] (no server round-trip; uses device's own local Date)
+```
+
+---
 
 ## 3. Core Components
 
@@ -133,6 +141,8 @@ Each provider enforces a strict JSON schema, parsing the user's raw text into di
 
 **Deployment:** Supabase Managed Cloud
 
+---
+
 ## 4. Data Stores & Schemas
 
 ### 4.1. Local Storage (Primary V1 Store & Optimistic State)
@@ -153,8 +163,7 @@ Each provider enforces a strict JSON schema, parsing the user's raw text into di
 
 To ensure synchronization between AI provider output (Gemini or Groq), the client-side date parser, Frontend State, and the Supabase Database, all tasks strictly adhere to the following interface. All persisted timestamp fields (`due_date`, `created_at`, and every entry in `field_updated_at`) must be strictly ISO 8601 UTC strings to prevent local timezone rendering bugs and to keep conflict-resolution comparisons unambiguous.
 
-```Typescript
-
+```typescript
 interface Task {
   id: string; // UUID v4
   user_id?: string; // Nullable for anonymous users, populated by auth.uid()
@@ -181,6 +190,8 @@ interface Task {
 
 `raw_segment` is never synced to the Supabase `tasks` table, and is not retained locally past creation either — it's a transient extraction artifact needed only once, at creation time, to compute `due_date` client-side. Nothing downstream ever reads it again (`urgency_column` recompute only ever consumes `due_date`), so it's dropped from the local `Task` object immediately after `due_date` is computed.
 
+---
+
 ## 5. External Integrations / APIs
 
 **Service Name 1:** Google Gemini API (Free Tier) — Primary AI Provider
@@ -200,6 +211,8 @@ interface Task {
 **Purpose:** Google OAuth, password recovery, and PostgreSQL cloud syncing.
 **Integration Method:** Supabase JavaScript SDK.
 
+---
+
 ## 6. Deployment & Infrastructure
 
 **Cloud Provider:** Vercel, Supabase, Upstash (via Vercel Marketplace)
@@ -207,12 +220,16 @@ interface Task {
 **CI/CD Pipeline:** Vercel GitHub Integration (automated builds on `main` push).
 **Monitoring & Logging:** Vercel Analytics, Supabase Dashboard Logs. **Flagged:** no monitoring currently specified for AI provider fallback frequency (i.e. how often Groq is actually being invoked as a fallback) — worth adding a lightweight log/metric here so provider-chain health is visible, not just inferred from user complaints.
 
+---
+
 ## 7. Security Considerations
 
 **Authentication:** Supabase Auth (OAuth2 & JWT).
 **Authorization:** Supabase Row Level Security (RLS) ensuring users can only read/write tasks where `tasks.user_id = auth.uid()`.
 **Data Encryption:** TLS in transit. Data at rest managed by Supabase.
 **Key Security Tools/Practices:** Server-side execution for all Gemini and Groq API calls to prevent API key leakage. Upstash Redis credentials are also server-only — the client never talks to Redis directly. Environment variables strictly segregated between client (`NEXT_PUBLIC_`) and server.
+
+---
 
 ## 8. Development & Testing Environment
 
@@ -226,6 +243,8 @@ interface Task {
 **Testing Frameworks:** Jest (Unit logic — including `lib/date-parser.ts` against the messy multi-task inputs used during provider evaluation, and `lib/urgency.ts` threshold edges), Playwright (E2E local-to-cloud sync flows, optimistic UI rollback validation, logout-with-unsynced-data warning dialog, "Sync First" success and failure paths, "Continue Anyway" data-clear verification, and the Gemini→Groq fallback path — including a forced-failure test that confirms the "heavy traffic" state renders correctly when both providers are unavailable).
 **Code Quality Tools:** ESLint, Prettier, TypeScript strict mode.
 
+---
+
 ## 9. Future Considerations / Roadmap
 
 * **Conflict Resolution Evolution:** V1 uses per-field last-write-wins (section 3.2.2), which silently discards the losing edit whenever two devices change the same field. Move beyond this to a true CRDT (Conflict-free Replicated Data Type) or richer timestamp-based merge strategy — one that can preserve or surface both conflicting edits instead of discarding one — as the user base matures and simultaneous multi-device editing increases.
@@ -234,12 +253,16 @@ interface Task {
 * **Third AI fallback tier:** V1 deliberately stops at two providers (Gemini → Groq) and shows a "heavy traffic" message rather than degrading further. If real usage shows the two-provider chain being exhausted often enough to matter, revisit — options include a third free-tier provider or, as a last resort, a local rule-based extraction, accepting the quality trade-off explicitly rejected for V1.
 * **Segmentation quality parity across providers:** Gemini and Groq were spot-checked against a small hand-written set of test inputs before this revision, not formally benchmarked. Worth building a small regression suite that runs both providers against a larger, messier input set periodically, since provider-side model updates could silently change segmentation behavior on either side of the chain.
 
+---
+
 ## 10. Project Identification
 
 **Project Name:** Organised
 **Repository URL:** [Insert Repository URL]
 **Primary Contact/Team:** Engineering
 **Date of Last Update:** 2026-08-29
+
+---
 
 ## 11. Glossary / Acronyms
 
