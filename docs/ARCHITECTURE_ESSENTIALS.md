@@ -126,8 +126,8 @@ interface Task {
 - Timestamps for conflict resolution are **always server-assigned at write time** — never trust a client-submitted timestamp for this. This is a hard rule, not a preference; it's what stops a wrong device clock from corrupting merge outcomes.
 - Logout: if unsynced changes OR pending deletions exist, warn before clearing localStorage. Options: sync-first-then-logout, or discard-and-logout. Never silently delete unsynced data. Never block logout indefinitely on a stuck sync — the warning dialog is the only gate.
 
-**`ui-ux-pro-max`**
-- This is a design-intelligence *skill* for AI coding assistants (style/color/typography recommendations), not an npm package or component library. Do not `npm install` it, do not `import` from it. It informs how you write Tailwind components by hand; it is never a runtime dependency.
+**Design Skills & Repositories (`ui-ux-pro-max` & Complementary Repos)**
+- `ui-ux-pro-max` (nextlevelbuilder/ui-ux-pro-max-skill) and complementary design skill repositories (`stitch-design-taste`, `minimalist-ui`, `emil-design-eng`, `mobile-native`, `apple-design`, `ask-sonner`, etc.) are design-intelligence *skills* for AI coding assistants (providing style, color, typography, motion, and UX guidance), not npm packages or component libraries. Do not `npm install` them, do not `import` from them. They inform how you write Tailwind components by hand; they are never runtime dependencies.
 
 ## Where Logic Lives
 

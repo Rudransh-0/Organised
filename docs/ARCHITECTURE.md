@@ -4,7 +4,7 @@ This document serves as a critical, living template designed to equip agents wit
 
 ## 1. Project Structure
 
-This repository follows a standard Next.js App Router convention, flattened for a serverless deployment model. UI components are hand-built with Tailwind CSS, using the `ui-ux-pro-max` skill (nextlevelbuilder/ui-ux-pro-max-skill) as a development-time design reference — not a runtime dependency — for style, color, typography, and UX-pattern decisions.
+This repository follows a standard Next.js App Router convention, flattened for a serverless deployment model. UI components are hand-built with Tailwind CSS, using the `ui-ux-pro-max` skill (nextlevelbuilder/ui-ux-pro-max-skill) alongside complementary design skill repositories (`stitch-design-taste`, `minimalist-ui`, `emil-design-eng`, `mobile-native`, `apple-design`, `ask-sonner`) as development-time design references — not runtime dependencies — for style, color, typography, fluid motion, mobile ergonomics, and UX-pattern decisions.
 
 ```
 [Project Root]/
@@ -15,7 +15,7 @@ This repository follows a standard Next.js App Router convention, flattened for 
 │   │   ├── layout.tsx      # Global layout & providers
 │   │   └── page.tsx        # Main application view (Input & Task Board)
 │   ├── components/         # UI Components
-│   │   ├── ui/             # Hand-built UI components, styled per the ui-ux-pro-max design reference
+│   │   ├── ui/             # Hand-built UI components, styled per ui-ux-pro-max and complementary design skill repositories
 │   │   ├── TaskBoard.tsx   # Static 4-column layout; calls lib/urgency.ts on every render for unpinned tasks; owns the long-press/right-click handler (column highlight + "..." icon + green checkmark, fired simultaneously), highlight-then-tap column move logic, the pending-deletion undo buffer, and the pin indicator on locked tasks
 │   │   ├── EditMenu.tsx    # "..." edit menu: title/category free text, due_date via date picker with explicit clear action; writes go through the same field-level update path as column moves
 │   │   └── InputEngine.tsx # SpeechRecognition and text fallback wrapper
@@ -67,7 +67,7 @@ The system relies on a thick client for local-first interactions and serverless 
 
 **Name:** Organised Web Application
 
-**Description:** A local-first Next.js React application for text input and storage; voice input is not local, as it depends on the browser vendor's remote speech-to-text service via the SpeechRecognition API and requires network connectivity. Captures stream-of-consciousness input via `SpeechRecognition` or text, with the text path always available as a fallback. UI updates instantly via Optimistic UI patterns. Components are hand-built with Tailwind CSS; styling and design decisions (color palette, typography, layout patterns) follow the `ui-ux-pro-max` skill's recommendations. Tasks are strictly routed into four static columns: `'Urgent'`, `'Upcoming'`, `'Backlog'`, and `'Undefined'`. Unlike category or title, `urgency_column` is not AI-assigned — it is computed deterministically on the client from `due_date` and the viewer's current local date, using a shared pure function (see 3.2.1 and the threshold rule below), and recomputed on every render so a task's column keeps advancing automatically as its due date approaches or passes.
+**Description:** A local-first Next.js React application for text input and storage; voice input is not local, as it depends on the browser vendor's remote speech-to-text service via the SpeechRecognition API and requires network connectivity. Captures stream-of-consciousness input via `SpeechRecognition` or text, with the text path always available as a fallback. UI updates instantly via Optimistic UI patterns. Components are hand-built with Tailwind CSS; styling and design decisions (color palette, typography, layout patterns, motion) follow recommendations from `ui-ux-pro-max` and complementary design skill repositories (`stitch-design-taste`, `minimalist-ui`, `emil-design-eng`, `mobile-native`, `apple-design`, `ask-sonner`). Tasks are strictly routed into four static columns: `'Urgent'`, `'Upcoming'`, `'Backlog'`, and `'Undefined'`. Unlike category or title, `urgency_column` is not AI-assigned — it is computed deterministically on the client from `due_date` and the viewer's current local date, using a shared pure function (see 3.2.1 and the threshold rule below), and recomputed on every render so a task's column keeps advancing automatically as its due date approaches or passes.
 
 A long-press (mobile) or right-click (desktop) on any card fires three UI elements simultaneously, all from the same gesture: the four urgency columns highlight as tappable move-targets; a small "..." icon appears on the card, opening an edit menu; and a small green checkmark icon appears on the card for direct one-tap "Mark Complete" (see the Task Completion & Deletion rules below). This replaces an earlier single-popup design. Moving a task is highlight-then-tap, not drag-and-drop: tapping a highlighted column moves the card there and sets `urgency_pinned`, permanently exempting that task from auto-recompute — the stored `urgency_column` becomes authoritative from then on (see `urgency_column` / `urgency_pinned` in section 4.3). A pinned task displays a small pin indicator on its card at all times, distinguishing it visually from tasks still auto-tracking their due date.
 
@@ -236,7 +236,7 @@ interface Task {
 **Local Setup Instructions:**
 
 1. Clone repo and install dependencies (`npm i`).
-2. (Optional, dev-time only) Install the `ui-ux-pro-max` skill in your AI coding assistant for design-system guidance while building components — this is not a project dependency and is not required to run the app.
+2. (Optional, dev-time only) Install `ui-ux-pro-max` alongside complementary design skill repositories (`stitch-design-taste`, `minimalist-ui`, `emil-design-eng`, `mobile-native`, `apple-design`, etc.) in your AI coding assistant for design-system and motion guidance while building components — these are not project dependencies and are not required to run the app.
 3. Setup local `.env.local` with `GEMINI_API_KEY`, `GROQ_API_KEY`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, `NEXT_PUBLIC_SUPABASE_URL`, and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
 4. Run `npm run dev`.
 
