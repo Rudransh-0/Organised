@@ -1,0 +1,2 @@
+### Context Compression Threshold
+If any tool output, file read, terminal log, or RAG search result is excessively long (e.g., exceeding 150 lines), you MUST immediately invoke the `headroom_compress` tool on that payload before analyzing it or generating a response. Do not attempt to read the raw, uncompressed text. If you require specific stripped details later in the task, invoke `headroom_retrieve` using the generated hash.
