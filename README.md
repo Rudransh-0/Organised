@@ -11,11 +11,13 @@ This repo currently holds the finished product spec and system architecture — 
 - 📄 [Product Requirements Doc](./docs/PRD.md) — what we're building, why, and the exact user journey
 - 🏗️ [Architecture](./docs/ARCHITECTURE.md) — technical design and system structure
 - 🧩 [Architecture Essentials](./docs/ARCHITECTURE_ESSENTIALS.md) — condensed technical reference
+- 🎨 [Design System](./docs/DESIGN.md) — visual theme, tokens, material hierarchy, and fluid motion rules
+- 📱 [UI/UX Specification](./docs/UI_UX_Design.md) — unified design stack, components, and layout specs
 
 ## Tech Stack
 
 - **Framework:** Next.js (App Router)
-- **Styling:** Tailwind CSS
+- **Styling & Design:** Tailwind CSS, guided by a unified design stack & skill repositories (`ui-ux-pro-max`, `stitch-design-taste`, `minimalist-ui`, `emil-design-eng`, `mobile-native`, `apple-design`, `ask-sonner`)
 - **Backend/Auth:** Supabase (Free Tier)
 - **AI Extraction:** Google Gemini (primary), Groq `gpt-oss-120b` (fallback)
 - **Deployment:** Vercel
@@ -29,4 +31,4 @@ This repo currently holds the finished product spec and system architecture — 
 
 ## Next Steps
 
-Implementation starting with Feature 1 (Brain-Dump Input) and Feature 2 (AI Extraction Engine).# Organised
+Implementation starting with Feature 1 (Brain-Dump Input) and Feature 2 (AI Extraction Engine).
