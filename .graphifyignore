@@ -1,0 +1,4 @@
+# Exclude agent tooling, skills, and plugins from application knowledge graph
+.agents/
+.claude/
+skills-lock.json
