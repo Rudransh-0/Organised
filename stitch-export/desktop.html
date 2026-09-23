@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Organised</title>
+<!-- Fonts: Outfit, Hanken Grotesk, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          canvas: "#FBFBFA",
+          charcoal: "#16171A",
+          primary: "#B14E2E",
+          "primary-hover": "#9E4225",
+          dot: "#C25936",
+          brick: "#A8422B",
+          slateindigo: "#475569",
+          forest: "#2E6F54",
+          ochre: "#8C6D3B",
+          sage: "#5A786B"
+        },
+        fontFamily: {
+          sans: ["Hanken Grotesk", "sans-serif"],
+          display: ["Outfit", "sans-serif"],
+          mono: ["JetBrains Mono", "monospace"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .custom-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body class="bg-[#FBFBFA] text-[#16171A] antialiased min-h-screen selection:bg-[#B14E2E]/10 selection:text-[#B14E2E] font-sans">
+<!-- HEADER (Frosted Glass) -->
+<header class="sticky top-0 z-50 h-16 px-8 md:px-12 flex items-center justify-between border-b border-black/[0.06] bg-white/[0.78] backdrop-blur-[20px] backdrop-saturate-[180%]">
+<!-- Left: Wordmark 'Organised' with tiny terracotta dot -->
+<div class="flex items-center gap-1.5">
+<span class="font-display font-semibold text-lg tracking-tight text-[#16171A]">Organised</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-[#C25936]"></span>
+</div>
+<!-- Right: Quiet muted date -->
+<div class="flex items-center">
+<span class="font-mono text-xs text-slate-500 tracking-wider">Wednesday, Sep 23</span>
+</div>
+</header>
+<!-- MAIN WORKSPACE -->
+<main class="max-w-[1440px] mx-auto px-6 md:px-12 pt-6 pb-24">
+<!-- INPUT CANVAS (Floating Translucent Island) -->
+<section class="max-w-4xl mx-auto my-8">
+<div class="bg-white/[0.85] backdrop-blur-xl rounded-[1.5rem] border border-black/[0.06] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.03),0_8px_24px_rgba(0,0,0,0.04)]">
+<textarea class="w-full resize-none border-0 p-0 text-base text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-0 bg-transparent leading-relaxed min-h-[90px]" placeholder="Speak or type whatever is on your mind... laundry tonight, email Sarah by Friday, pay electric bill" rows="3"></textarea>
+<div class="flex items-center justify-between pt-4 mt-2 border-t border-black/[0.04]">
+<div class="flex items-center">
+<span class="font-mono text-xs text-slate-500 bg-slate-100/80 px-2 py-1 rounded border border-black/[0.03]">⌘↵</span>
+</div>
+<div class="flex items-center gap-3">
+<!-- 48px Circular Mic Button -->
+<button class="w-12 h-12 rounded-full border border-slate-200/80 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 shadow-sm transition-all active:scale-95" title="Voice Input" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke-linecap="round" stroke-linejoin="round"></path>
+<line stroke-linecap="round" stroke-linejoin="round" x1="12" x2="12" y1="19" y2="23"></line>
+<line stroke-linecap="round" stroke-linejoin="round" x1="8" x2="16" y1="23" y2="23"></line>
+</svg>
+</button>
+<!-- 'Organize' CTA Button -->
+<button class="h-12 bg-[#B14E2E] hover:bg-[#9E4225] text-white font-semibold rounded-xl px-5 flex items-center gap-2 shadow-sm transition-all active:scale-95" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-sm">Organize</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4-COLUMN URGENCY BOARD -->
+<section class="mt-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+<!-- ================= COLUMN 1: URGENT ================= -->
+<div class="flex flex-col gap-4">
+<!-- Header -->
+<div class="flex items-center justify-between pb-2 border-b border-black/[0.06]">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-display text-xs tracking-wider font-semibold text-slate-800">URGENT</h2>
+<span class="font-mono text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-medium">03</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Due today &amp; tomorrow</p>
+</div>
+<button class="text-slate-400 hover:text-slate-700 p-1 transition" title="Add Task">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Task Cards -->
+<div class="flex flex-col gap-3.5">
+<!-- Card 1.1: Finalize quarterly tax filing (Warm Brick #A8422B) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#A8422B] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Finalize quarterly tax filing</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Review deductions with accountant and upload schedule C</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+                Today, 17:00
+              </span>
+</div>
+</div>
+<!-- Card 1.2: Pick up prescription at pharmacy (Dusty Sage #5A786B) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#5A786B] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Pick up prescription at pharmacy</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Walgreens on 4th Ave, pickup code #8821</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+                Tomorrow, 11:00
+              </span>
+</div>
+</div>
+<!-- Card 1.3: Send revised client proposal to Alex (Slate Indigo #475569) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#475569] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Send revised client proposal to Alex</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Include architectural phase 2 milestone specs</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+                Tomorrow, 18:00
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= COLUMN 2: UPCOMING ================= -->
+<div class="flex flex-col gap-4">
+<!-- Header -->
+<div class="flex items-center justify-between pb-2 border-b border-black/[0.06]">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-display text-xs tracking-wider font-semibold text-slate-800">UPCOMING</h2>
+<span class="font-mono text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-medium">04</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Due later this week &amp; month</p>
+</div>
+<button class="text-slate-400 hover:text-slate-700 p-1 transition" title="Add Task">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Task Cards -->
+<div class="flex flex-col gap-3.5">
+<!-- Card 2.1: Review Sarah's product strategy draft (Slate Indigo #475569) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#475569] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Review Sarah's product strategy draft</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Focus on onboarding UX flow annotations</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+                Friday, 15:00
+              </span>
+</div>
+</div>
+<!-- Card 2.2: Renew car insurance policy (Raw Ochre #8C6D3B) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#8C6D3B] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Renew car insurance policy</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Compare Geico vs State Farm premium rates</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+                Next Mon, 09:00
+              </span>
+</div>
+</div>
+<!-- Card 2.3: Book dental checkup appointment (Dusty Sage #5A786B) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#5A786B] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Book dental checkup appointment</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Dr. Evans clinic routine cleaning</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+                Next Thu, 14:30
+              </span>
+</div>
+</div>
+<!-- Card 2.4: Prep slides for team sprint retrospective (Slate Indigo #475569) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#475569] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Prep slides for team sprint retrospective</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Compile velocity metrics and user feedback quotes</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+<line x1="16" x2="16" y1="2" y2="6"></line>
+<line x1="8" x2="8" y1="2" y2="6"></line>
+<line x1="3" x2="21" y1="10" y2="10"></line>
+</svg>
+                Oct 2, 10:00
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= COLUMN 3: BACKLOG ================= -->
+<div class="flex flex-col gap-4">
+<!-- Header -->
+<div class="flex items-center justify-between pb-2 border-b border-black/[0.06]">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-display text-xs tracking-wider font-semibold text-slate-800">BACKLOG</h2>
+<span class="font-mono text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-medium">02</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Past due or deferred</p>
+</div>
+<button class="text-slate-400 hover:text-slate-700 p-1 transition" title="Add Task">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Task Cards -->
+<div class="flex flex-col gap-3.5">
+<!-- Card 3.1: Deep clean home office desk (Forest Celadon #2E6F54 + Warm Brick Overdue) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#2E6F54] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Deep clean home office desk</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Organize cable conduits and studio sample trays</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="inline-flex items-center gap-1.5 font-mono text-xs text-[#A8422B] bg-[#A8422B]/10 px-2 py-0.5 rounded">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                2 days ago
+              </span>
+</div>
+</div>
+<!-- Card 3.2: Archive completed Q2 design files (Slate Indigo #475569 + Warm Brick Overdue) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#475569] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Archive completed Q2 design files</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Export master Figma packages to cold storage</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="inline-flex items-center gap-1.5 font-mono text-xs text-[#A8422B] bg-[#A8422B]/10 px-2 py-0.5 rounded">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                Last week
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= COLUMN 4: UNDEFINED ================= -->
+<div class="flex flex-col gap-4">
+<!-- Header -->
+<div class="flex items-center justify-between pb-2 border-b border-black/[0.06]">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-display text-xs tracking-wider font-semibold text-slate-800">UNDEFINED</h2>
+<span class="font-mono text-[11px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-medium">03</span>
+</div>
+<p class="text-xs text-slate-500 mt-1">Unassigned date &amp; triage</p>
+</div>
+<button class="text-slate-400 hover:text-slate-700 p-1 transition" title="Add Task">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Task Cards -->
+<div class="flex flex-col gap-3.5">
+<!-- Card 4.1: Explore ideas for weekend cycling trip (Forest Celadon #2E6F54) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#2E6F54] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Explore ideas for weekend cycling trip</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Check gravel routes near Hudson Valley</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" stroke-linecap="round" stroke-linejoin="round"></path>
+<line stroke-width="1.8" x1="4" x2="20" y1="4" y2="20"></line>
+</svg>
+                No date
+              </span>
+</div>
+</div>
+<!-- Card 4.2: Research ergonomic mechanical switches (Forest Celadon #2E6F54) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#2E6F54] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Research ergonomic mechanical switches</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Boba U4T vs Holy Panda sound tests</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" stroke-linecap="round" stroke-linejoin="round"></path>
+<line stroke-width="1.8" x1="4" x2="20" y1="4" y2="20"></line>
+</svg>
+                No date
+              </span>
+</div>
+</div>
+<!-- Card 4.3: Look into noise-cancelling headphones (Raw Ochre #8C6D3B) -->
+<div class="group bg-white rounded-[20px] p-5 border border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.02),0_6px_16px_rgba(0,0,0,0.03)] relative overflow-hidden transition-all duration-150 hover:-translate-y-0.5 flex flex-col gap-3">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[#8C6D3B] rounded-r-[2px]"></div>
+<div class="flex items-start justify-between gap-2 pl-1">
+<div class="flex items-start gap-2.5 min-w-0">
+<button class="mt-0.5 w-4 h-4 rounded-full border border-slate-300 hover:border-[#B14E2E] transition-opacity duration-150 flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100" title="Complete task"></button>
+<div>
+<h3 class="font-semibold text-sm text-[#16171A] leading-snug">Look into noise-cancelling headphones</h3>
+<p class="text-[13px] text-[#64748B] leading-relaxed mt-1">Sony XM5 vs AirPods Max comparison</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-700 shrink-0 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150" title="Options">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="5" cy="12" r="1.5"></circle>
+<circle cx="12" cy="12" r="1.5"></circle>
+<circle cx="19" cy="12" r="1.5"></circle>
+</svg>
+</button>
+</div>
+<div class="flex items-center justify-between pt-2.5 border-t border-black/[0.03] pl-1">
+<span class="font-mono text-xs text-slate-500 flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" stroke-linecap="round" stroke-linejoin="round"></path>
+<line stroke-width="1.8" x1="4" x2="20" y1="4" y2="20"></line>
+</svg>
+                No date
+              </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

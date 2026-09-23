@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Organised — Drafting Desk</title>
+<!-- Fonts: Outfit (Headline), Hanken Grotesk (Body), JetBrains Mono (Data/Code) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#f5fff7",
+            "on-primary-fixed": "#3a0b00",
+            "inverse-surface": "#2f3033",
+            "tertiary-fixed": "#aef1cf",
+            "secondary-container": "#d5e3fc",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e3e2e6",
+            "on-secondary-fixed": "#0d1c2e",
+            "primary-container": "#bd5533",
+            "on-tertiary": "#ffffff",
+            "outline": "#8a726b",
+            "on-surface": "#1a1b1f",
+            "surface": "#faf9fd",
+            "on-surface-variant": "#56423c",
+            "surface-bright": "#faf9fd",
+            "primary-fixed-dim": "#ffb59e",
+            "secondary-fixed": "#d5e3fc",
+            "on-secondary-fixed-variant": "#3a485b",
+            "surface-container-low": "#f4f3f7",
+            "surface-container": "#efedf1",
+            "primary": "#9d3e1d",
+            "tertiary-fixed-dim": "#92d4b4",
+            "surface-tint": "#a0401f",
+            "background": "#faf9fd",
+            "surface-container-highest": "#e3e2e6",
+            "surface-dim": "#dbd9dd",
+            "on-error": "#ffffff",
+            "on-background": "#1a1b1f",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#ffdbd0",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#002114",
+            "on-primary-container": "#fffbff",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e9e7ec",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#802909",
+            "tertiary": "#25674d",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#57657a",
+            "on-tertiary-fixed-variant": "#055138",
+            "inverse-primary": "#ffb59e",
+            "outline-variant": "#ddc0b8",
+            "secondary-fixed-dim": "#b9c7df",
+            "inverse-on-surface": "#f2f0f4",
+            "tertiary-container": "#408064",
+            "secondary": "#515f74"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "margin": "2.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "body-md": ["Hanken Grotesk"],
+            "mono-data": ["JetBrains Mono"],
+            "label-md": ["JetBrains Mono"],
+            "body-lg": ["Hanken Grotesk"],
+            "headline-lg": ["Outfit"],
+            "label-sm": ["JetBrains Mono"],
+            "body-sm": ["Hanken Grotesk"],
+            "headline-md": ["Outfit"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "mono-data": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Architectural Draft Canvas Baseline */
+    body {
+      background-color: #FBFBFA;
+      color: #16171A;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .island-shadow {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 12px 32px rgba(22, 23, 26, 0.04);
+    }
+
+    .island-shadow:focus-within {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03), 0 20px 48px rgba(194, 89, 54, 0.06);
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Sticky Frosted Header (Shared Component Anchored: Clean Pristine Variant) -->
+<header class="sticky top-0 z-50 w-full h-16 px-6 md:px-10 flex items-center justify-between bg-white/80 backdrop-blur-[20px] saturate-[180%] border-b border-black/[0.06]">
+<div class="flex items-center gap-1 select-none">
+<span class="font-headline-md text-headline-md font-semibold tracking-tight text-[#16171A]">Organised</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container translate-y-0.5"></span>
+</div>
+<div class="flex items-center">
+<time class="font-mono-data text-label-md tracking-wider text-secondary" datetime="2023-09-23">
+        Wednesday, Sep 23
+      </time>
+</div>
+</header>
+<!-- Drafting Board Center Viewport -->
+<main class="flex-1 flex flex-col justify-start px-4 md:px-8 pt-[122px] md:pt-[153px]">
+<div class="w-full max-w-4xl mx-auto">
+<!-- Input Canvas Island Card -->
+<div class="island-shadow bg-surface-container-lowest/90 backdrop-blur-xl rounded-[24px] border border-black/[0.06] p-7 md:p-10 transition-all duration-300">
+<form class="flex flex-col" id="capture-form" onsubmit="event.preventDefault();">
+<!-- Seamless Expansive Textarea -->
+<label class="sr-only" for="thought-stream">Thought stream capture</label>
+<textarea autofocus="" class="w-full h-36 md:h-40 bg-transparent border-none outline-none resize-none p-0 font-body-lg text-body-lg leading-relaxed text-[#16171A] placeholder:text-secondary/50 placeholder:font-light focus:ring-0" id="thought-stream" name="thought-stream" placeholder="Speak or type whatever is on your mind... laundry tonight, email Sarah by Friday, pay electric bill" rows="4"></textarea>
+<!-- Bottom Bar / Tool Tray -->
+<div class="flex items-center justify-between pt-6 border-t border-black/[0.04]">
+<!-- Left: Quiet Monospace Shortcut Indicator -->
+<div class="flex items-center gap-1.5 select-none text-secondary">
+<kbd class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-mono-data text-label-sm border border-black/[0.06] shadow-xs">⌘</kbd>
+<kbd class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-mono-data text-label-sm border border-black/[0.06] shadow-xs">↵</kbd>
+</div>
+<!-- Right: Actions Cluster (Mic + Primary Action) -->
+<div class="flex items-center gap-3">
+<!-- Circular Microphone Trigger -->
+<button aria-label="Capture audio note" class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest border border-black/[0.08] text-secondary hover:text-on-surface hover:bg-surface-container-low transition-all duration-150 active:scale-[0.97]" type="button">
+<span class="material-symbols-outlined text-secondary" style="font-size: 22px;">mic</span>
+</button>
+<!-- Terracotta Ember Primary Button -->
+<button class="h-12 px-6 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-headline-md font-medium text-body-md flex items-center gap-2 shadow-sm transition-all duration-150 active:scale-[0.99]" type="submit">
+<span>Organize</span>
+<span class="material-symbols-outlined text-on-primary" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Zen Canvas Buffer -->
+<div aria-hidden="true" class="h-32 md:h-48 w-full pointer-events-none"></div>
+</body></html>
