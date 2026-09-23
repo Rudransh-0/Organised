@@ -35,7 +35,7 @@ Apple's materiality uses layered glass with high-frequency background blurs:
 - **Subtle Tertiary (`#94A3B8`)** — Keyboard hints, inactive icons, and auxiliary metadata.
 
 ### C. System Accent (Strictly 1 Primary Accent)
-- **Terracotta Ember (`#C25936`)** — Single primary accent (Saturation: 57%). Inspired by Apple's grounding earthy watch-band tones. Used exclusively for primary interactive focal points: the "Organize" action, active microphone recording states, input focus rings, and pinned card indicators.
+- **Terracotta Ember (`#B14E2E`)** — Single primary accent, calibrated for WCAG AA contrast (≥ 4.5:1 at ~4.86:1) against white text. Inspired by Apple's grounding earthy watch-band tones. Used for primary filled CTA backgrounds (the "Organize" button) and any text-on-fill interactive element. For non-text decorative uses — the microphone recording pulse, pinned card indicator, input focus rings — the lighter variant `#C25936` may be used.
 
 ### D. Calibrated Semantic Category Tokens (Desaturated Organic Accents)
 Categories generated dynamically by the AI are mapped to subtle 3px left-edge indicator bars or 8px circular pips on cards — never loud card background fills:
