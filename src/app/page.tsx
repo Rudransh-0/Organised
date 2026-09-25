@@ -2,7 +2,6 @@
 'use client';
 
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import InputEngine from '@/components/InputEngine';
 import TaskBoard from '@/components/TaskBoard';
 import { extractAction } from '@/app/actions/extract';
@@ -52,7 +51,7 @@ export default function Home() {
         const urgencyColumn = computeUrgencyColumn(dueDate);
 
         return {
-          id: uuidv4(),
+          id: crypto.randomUUID(),
           raw_input: rawInput,
           title: extracted.title,
           category: extracted.category,
@@ -60,12 +59,6 @@ export default function Home() {
           urgency_pinned: false,
           due_date: dueDate,
           created_at: now,
-          field_updated_at: {
-            title: now,
-            category: now,
-            urgency_column: now,
-            due_date: now,
-          },
         };
       });
 
@@ -83,20 +76,8 @@ export default function Home() {
   }, []);
 
   const handleUpdateTask = useCallback((id: string, updates: Partial<Task>) => {
-    const now = new Date().toISOString();
     setTasks((prev) =>
-      prev.map((task) => {
-        if (task.id !== id) return task;
-        const updated = { ...task, ...updates };
-        // Update field_updated_at for changed fields
-        const fieldUpdates = { ...task.field_updated_at };
-        if ('title' in updates) fieldUpdates.title = now;
-        if ('category' in updates) fieldUpdates.category = now;
-        if ('urgency_column' in updates) fieldUpdates.urgency_column = now;
-        if ('due_date' in updates) fieldUpdates.due_date = now;
-        updated.field_updated_at = fieldUpdates;
-        return updated;
-      })
+      prev.map((task) => (task.id === id ? { ...task, ...updates } : task))
     );
   }, []);
 

@@ -2,7 +2,6 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { transcribeAudioAction } from '@/app/actions/transcribe';
 
 interface InputEngineProps {
   onSubmit: (text: string) => void;
@@ -58,19 +57,6 @@ function encodeWAV(samples: Float32Array, sampleRate: number): Blob {
   }
 
   return new Blob([buffer], { type: 'audio/wav' });
-}
-
-function blobToBase64(blob: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const dataUrl = reader.result as string;
-      const base64 = dataUrl.split(',')[1] ?? '';
-      resolve(base64);
-    };
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
 }
 
 export default function InputEngine({ onSubmit, isProcessing, preservedText }: InputEngineProps) {
@@ -261,23 +247,7 @@ export default function InputEngine({ onSubmit, isProcessing, preservedText }: I
         setVoiceState('error');
       }
     } catch (err) {
-      console.error('[Voice Engine] Transcribe fetch error:', err);
-      // Secondary fallback to server action
-      try {
-        const downsampled = downsampleTo16k(merged, sampleRate);
-        const wavBlob = encodeWAV(downsampled, 16000);
-        const base64 = await blobToBase64(wavBlob);
-        const actionResult = await transcribeAudioAction(base64, 'audio/wav');
-        if (actionResult.success && actionResult.text && actionResult.text.trim().length > 0) {
-          const base = baseTextRef.current;
-          const transcribed = actionResult.text.trim();
-          setText(base ? `${base} ${transcribed}` : transcribed);
-          setVoiceState('idle');
-          return;
-        }
-      } catch (fallbackErr) {
-        console.error('[Voice Engine] Server Action fallback also failed:', fallbackErr);
-      }
+      console.error('[Voice Engine] Transcribe error:', err);
       setVoiceState('error');
     }
   }, [cleanupAudioStreams]);
