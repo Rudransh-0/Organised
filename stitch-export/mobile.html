@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Organised — Mobile Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -69,28 +67,28 @@
     <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
       <!-- Urgent (Active) -->
       <button class="flex-shrink-0 h-12 px-5 rounded-full bg-charcoal text-white font-medium text-sm flex items-center gap-2 shadow-pill focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal focus-visible:ring-offset-2 transition-transform active:scale-[0.98]">
-        <span>Urgent</span>
+        <span class="">Urgent</span>
         <span class="opacity-50">·</span>
         <span class="text-xs font-mono opacity-90">3</span>
       </button>
 
       <!-- Upcoming (Inactive) -->
       <button class="flex-shrink-0 h-12 px-5 rounded-full bg-white text-mutedSlate border border-black/[0.06] font-medium text-sm flex items-center gap-2 hover:text-charcoal hover:border-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal focus-visible:ring-offset-2 transition-colors active:scale-[0.98]">
-        <span>Upcoming</span>
+        <span class="">Upcoming</span>
         <span class="opacity-40">·</span>
         <span class="text-xs font-mono opacity-70">4</span>
       </button>
 
       <!-- Backlog (Inactive) -->
       <button class="flex-shrink-0 h-12 px-5 rounded-full bg-white text-mutedSlate border border-black/[0.06] font-medium text-sm flex items-center gap-2 hover:text-charcoal hover:border-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal focus-visible:ring-offset-2 transition-colors active:scale-[0.98]">
-        <span>Backlog</span>
+        <span class="">Backlog</span>
         <span class="opacity-40">·</span>
         <span class="text-xs font-mono opacity-70">2</span>
       </button>
 
       <!-- Undefined (Inactive) -->
       <button class="flex-shrink-0 h-12 px-5 rounded-full bg-white text-mutedSlate border border-black/[0.06] font-medium text-sm flex items-center gap-2 hover:text-charcoal hover:border-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal focus-visible:ring-offset-2 transition-colors active:scale-[0.98]">
-        <span>Undefined</span>
+        <span class="">Undefined</span>
         <span class="opacity-40">·</span>
         <span class="text-xs font-mono opacity-70">3</span>
       </button>
@@ -129,9 +127,9 @@
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>Today, 17:00</span>
+            <span class="">Today, 17:00</span>
           </div>
-        </div>
+        <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-black/[0.04] text-mutedSlate border border-black/[0.06]">Finance</span></div>
       </article>
 
       <!-- Card 2: Pharmacy -->
@@ -155,9 +153,9 @@
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>Tomorrow, 11:00</span>
+            <span class="">Tomorrow, 11:00</span>
           </div>
-        </div>
+        <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-black/[0.04] text-mutedSlate border border-black/[0.06]">Health</span></div>
       </article>
 
       <!-- Card 3: Proposal to Alex -->
@@ -181,9 +179,9 @@
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>Tomorrow, 18:00</span>
+            <span class="">Tomorrow, 18:00</span>
           </div>
-        </div>
+        <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-black/[0.04] text-mutedSlate border border-black/[0.06]">Work</span></div>
       </article>
 
     </div>
@@ -194,18 +192,11 @@
     <div class="flex items-center gap-2">
       <!-- Input textarea row -->
       <div class="flex-1 min-h-[48px] max-h-24 bg-mist rounded-xl border border-black/[0.06] px-3.5 py-2.5 flex items-center focus-within:border-charcoal/25 focus-within:bg-white transition-all">
-        <input 
-          type="text" 
-          placeholder="Type or speak..." 
-          class="w-full bg-transparent text-charcoal placeholder-mutedSlate/60 text-sm focus:outline-none leading-relaxed"
-        />
+        <input type="text" placeholder="Type or speak..." class="w-full bg-transparent text-charcoal placeholder-mutedSlate/60 text-sm focus:outline-none leading-relaxed">
       </div>
 
       <!-- 48px Mic Button -->
-      <button 
-        aria-label="Voice input" 
-        class="w-12 h-12 rounded-xl bg-mist hover:bg-black/[0.03] active:bg-black/[0.06] border border-black/[0.06] text-mutedSlate hover:text-charcoal flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal"
-      >
+      <button aria-label="Voice input" class="w-12 h-12 rounded-xl bg-mist hover:bg-black/[0.03] active:bg-black/[0.06] border border-black/[0.06] text-mutedSlate hover:text-charcoal flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-charcoal">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
           <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
@@ -214,16 +205,17 @@
       </button>
 
       <!-- 48px Organize Button (#B14E2E) -->
-      <button 
-        class="h-12 px-4 rounded-xl bg-brickDark active:bg-[#9E4326] text-white text-sm font-medium flex items-center gap-1.5 shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brickDark focus-visible:ring-offset-2 flex-shrink-0"
-      >
+      <button class="h-12 px-4 rounded-xl bg-brickDark active:bg-[#9E4326] text-white text-sm font-medium flex items-center gap-1.5 shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brickDark focus-visible:ring-offset-2 flex-shrink-0">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
         </svg>
-        <span>Organize</span>
+        <span class="">Organize</span>
       </button>
     </div>
   </aside>
 
-</body>
-</html>
+
+
+
+
+</body></html>
